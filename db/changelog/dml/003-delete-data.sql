@@ -1,2 +1,1 @@
-DELETE FROM rol
-WHERE nombre = 'CLIENTE';
+-- DELETE omitido por restricciones de clave foránea

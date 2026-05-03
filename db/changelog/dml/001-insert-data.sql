@@ -32,4 +32,3 @@ INSERT INTO detalle_factura (id_factura, id_producto, cantidad, precio_unitario,
 VALUES
 (1, 1, 1, 2500000, 2500000),
 (1, 2, 1, 50000, 50000);
-``
