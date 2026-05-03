@@ -47,6 +47,7 @@ El modelo implementa llaves primarias y foráneas para garantizar la **integrida
 
 ## Estructura del proyecto
 
+```text
 task-mgbd-liquibase/
 ├── README.md
 ├── docker-compose.yml
@@ -59,6 +60,7 @@ task-mgbd-liquibase/
 │   └── scripts/
 │       └── queries/
 └── docs/
+```
 
 ### Organización de carpetas
 
