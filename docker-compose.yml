@@ -1,0 +1,26 @@
+version: "3.9"
+
+services:
+  db:
+    image: postgres:15
+    container_name: mgbd_postgres
+    environment:
+      POSTGRES_DB: mgbd_liquibase
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+  liquibase:
+    image: liquibase/liquibase:4.27
+    container_name: mgbd_liquibase
+    volumes:
+      - ./db:/liquibase/db
+      - ./liquibase.properties:/liquibase/liquibase.properties
+    depends_on:
+      - db
+
+volumes:
+  db_data:
