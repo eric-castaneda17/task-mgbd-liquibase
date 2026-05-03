@@ -1,0 +1,2 @@
+DELETE FROM rol
+WHERE nombre = 'CLIENTE';
