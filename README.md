@@ -85,22 +85,26 @@ No se requiere instalar manualmente PostgreSQL ni Liquibase.
 ## Ejecución del proyecto
 
 ### Clonar el repositorio
+```bash
+git clone https://github.com/eric-castaneda17/task-mgbd-liquibase
 
-git clone https://github.com/TU-USUARIO-GITHUB/task-mgbd-liquibase.git
 cd task-mgbd-liquibase
+```
 
 ### Levantar los contenedores
 docker compose up -d
 
 ### Ejecutar Liquibase
 - Validar la configuración:
+```bash
 docker compose run --rm liquibase --defaults-file=/liquibase/liquibase.properties validate
-
+```
 - Ejecutar las migraciones:
+```bash
 docker compose run --rm liquibase --defaults-file=/liquibase/liquibase.properties update
 
 Liquibase ejecuta primero las migraciones DDL y posteriormente las DML, según lo definido en el changelog maestro.
-
+```
 ## Eliminación de datos (DELETE)
 
 Durante el desarrollo se identificó que las tablas se encuentran relacionadas mediante llaves foráneas activas.
@@ -110,13 +114,16 @@ Esta decisión se toma de manera intencional.
 ## Verificación de la base de datos
 
 ### Acceder a PostgreSQL
+```bash
 docker compose exec db psql -U postgres -d mgbd_liquibase
-
+```
 ### Listar tablas
+```bash
 \dt
-
+```
 ### Ejecutar consultas de validación
+```bash
 docker compose exec db psql -U postgres -d mgbd_liquibase -f db/scripts/queries/001-select-usuarios.sql
 docker compose exec db psql -U postgres -d mgbd_liquibase -f db/scripts/queries/002-select-facturas.sql
 docker compose exec db psql -U postgres -d mgbd_liquibase -f db/scripts/queries/003-select-detalle-factura.sql
-
+```
